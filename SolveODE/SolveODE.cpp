@@ -104,22 +104,28 @@ vector <double> find_solution(const vector < vector <double>>& M, const vector <
 }
 
 int main() {
+    // Matrix from corfficients of the equation
     vector < vector <double>> M = {
         {0,1,0,0,0},
         {0,0,1,0,0},
         {0,0,0,1,0},
         {0,0,0,0,1},
         {-243,-405,-270,-90,-15} };
+    // Initial value
     vector < double > y0 = {0,3,-9,-8,0};
+    // Number of split points
     unsigned const int N = 1000;
+    // Length of segment [0,5]
     const double L = 5.;
+    // Step
     double h = L / N;
     cout << "Grid N, where N = " << N << endl;
     cout << "Step h = " << h << endl;
 
+    // Apply method
     vector <double> y = find_solution(M, y0, N, L);
 
-    //print_vector(y);
+    // Print of solution in file
     output_solution(y, L);
     return 0;
 }
